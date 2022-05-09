@@ -53,13 +53,13 @@ class Timer {
             const countDown = startTime - currentTime;
             console.log(countDown)
             const time = this.convertMs(countDown);
-            this.onTick(time) 
+            
          if (countDown <= 0) {
-                clearInterval(this.intervalId);
+             clearInterval(this.intervalId);
              this.isActive = false;
              return;
         }
-            
+            this.onTick(time) 
         }, 1000)
 }
 convertMs(ms) {
@@ -94,29 +94,5 @@ const timer = new Timer({
     refs.daysShow.textContent = `${days}`;
     refs.hoursShow.textContent = `${hours}`;
     refs.minutesShow.textContent = `${minutes}`;
-     refs.secondsShow.textContent = `${seconds}`;
+    refs.secondsShow.textContent = `${seconds}`;
  }
-
-
-// function convertMs(ms) {
-//   // Number of milliseconds per unit of time
-//   const second = 1000;
-//   const minute = second * 60;
-//   const hour = minute * 60;
-//   const day = hour * 24;
-
-//   // Remaining days
-//   const days = pad(Math.floor(ms / day));
-//   // Remaining hours
-//   const hours = pad(Math.floor((ms % day) / hour));
-//   // Remaining minutes
-//   const minutes = pad(Math.floor(((ms % day) % hour) / minute));
-//   // Remaining seconds
-//   const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second));
-
-//   return { days, hours, minutes, seconds };
-// }
-
-// function addLeadingZero(value) {
-//     return String(value).padStart(2, '0');
-// }
