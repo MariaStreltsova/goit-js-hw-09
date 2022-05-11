@@ -2,7 +2,6 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// const deadline = new Date();
 
 const refs = {
     input: document.querySelector('#datetime-picker'),
@@ -54,27 +53,27 @@ class Timer {
             console.log(countDown)
             const time = this.convertMs(countDown);
             
-         if (countDown <= 0) {
-             clearInterval(this.intervalId);
-             this.isActive = false;
-             return;
+        if (countDown <= 0) {
+            clearInterval(this.intervalId);
+            this.isActive = false;
+            return;
         }
             this.onTick(time) 
         }, 1000)
 }
 convertMs(ms) {
   // Number of milliseconds per unit of time
-  const second = 1000;
+const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
   // Remaining days
-  const days = this.addLeadingZero(Math.floor(ms / day));
+const days = this.addLeadingZero(Math.floor(ms / day));
   // Remaining hours
-  const hours = this.addLeadingZero(Math.floor((ms % day) / hour));
+const hours = this.addLeadingZero(Math.floor((ms % day) / hour));
   // Remaining minutes
-  const minutes = this.addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+const minutes = this.addLeadingZero(Math.floor(((ms % day) % hour) / minute));
   // Remaining seconds
   const seconds = this.addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
